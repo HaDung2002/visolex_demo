@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViSoLex Demo - Vietnamese Text Normalization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ViSoLex Demo</h1>
+            <p>Application for Vietnamese text normalization and non-standard word detection</p>
+        </header>
+
+        <main>
+            <div class="mode-selector">
+                <label>
+                    <input type="radio" name="mode" value="normalize" checked>
+                    Text Normalization
+                </label>
+                <label>
+                    <input type="radio" name="mode" value="detect-nsw">
+                    Detect Non-Standard Words
+                </label>
+            </div>
+
+            <div class="input-section">
+                <div class="upload-section">
+                    <label for="fileInput" class="file-upload-label">
+                        📁 Upload File (.txt or .csv)
+                    </label>
+                    <input type="file" id="fileInput" accept=".txt,.csv" style="display: none;">
+                    <div class="file-status">
+                        <div id="fileName" class="file-name"></div>
+                        <div id="fileStatus" class="file-status-message"></div>
+                    </div>
+                </div>
+                <div class="textarea-wrapper">
+                    <textarea id="inputText" placeholder="Enter text to process...&#10;&#10;For batch processing, enter multiple sentences, each on a new line."></textarea>
+                    <div id="fileLoadedBadge" class="file-loaded-badge" style="display: none;">
+                        ✓ File loaded
+                    </div>
+                </div>
+                <div class="input-hint">
+                    <small>💡 Tip: Enter multiple sentences (one per line) for batch processing, or upload a .txt or .csv file</small>
+                </div>
+                <div class="button-group">
+                    <button id="processBtn" class="btn btn-primary">🔄 Process</button>
+                    <button id="clearBtn" class="btn btn-secondary">🗑️ Clear</button>
+                    <div class="download-group">
+                        <button id="downloadBtn" class="btn btn-secondary">💾 Download</button>
+                        <select id="downloadFormat" class="download-format-select">
+                            <option value="txt">TXT</option>
+                            <option value="csv">CSV</option>
+                            <option value="json">JSON</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="results" class="results-section" style="display: none;">
+                <h2>Results</h2>
+                <div id="resultContent"></div>
+            </div>
+
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Processing...</p>
+            </div>
+
+            <div id="errorMsg" class="error-message" style="display: none;"></div>
+        </main>
+
+        <footer>
+            <p>ViSoLex v1.0 © 2024</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
+
