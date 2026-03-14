@@ -1,6 +1,6 @@
-# ViSoLex Demo Application
+# ViSoLex: Vietnamese Text Normalization & NSW Detection Platform
 
-A fully functional web-based demonstration of the **ViSoLex Toolkit** for Vietnamese text normalization and Non-Standard Word (NSW) detection. Built with Flask and featuring a modern, responsive user interface.
+> **A powerful, production-ready web application** for Vietnamese text normalization and Non-Standard Word (NSW) detection. Built with Flask and featuring a modern, responsive user interface with comprehensive API support.
 
 ## ✨ Features
 
@@ -11,6 +11,9 @@ A fully functional web-based demonstration of the **ViSoLex Toolkit** for Vietna
 - **Dual Processing Modes**: Switch between normalization and NSW detection modes
 
 ### User Interface
+
+![ViSoLex Demo Main Interface](figs/main_ui.png "ViSoLex Demo - Main User Interface")
+
 - **Interactive Web Interface**: Modern, responsive single-page application
 - **File Upload Support**: Upload `.txt` or `.csv` files for batch processing
   - Automatic CSV parsing with header detection
@@ -167,7 +170,9 @@ docker run -p 5000:5000 visolex-demo
 
 5. **View Results**: Results are displayed with:
    - Original and normalized text (normalization mode)
+      ![Text Normalization Results Interface](figs/textnorm_out.png "Text Normalization Results View")
    - Detected NSWs with predictions and confidence scores (NSW detection mode)
+      ![NSW Detection Results Interface](figs/nswdetect_out.png "NSW Detection Results View")
    - Processing time for each item
 
 6. **Download Results**: Click "💾 Download" and select format:
@@ -388,6 +393,12 @@ Use the provided `Dockerfile` as base image and mount model cache volume for per
 1. Set `VISONORM_DEVICE=cuda`
 2. Ensure CUDA drivers and PyTorch CUDA build match
 3. Monitor GPU memory usage for batch processing
+
+## 👥 Authors
+
+* **Anh Thi-Hoang Nguyen** – University of Information Technology, Vietnam National University Ho Chi Minh City (UIT, VNU-HCM) – Maintainer – anhnth@uit.edu.vn
+* **Ha Dung Nguyen** – University of Information Technology, Vietnam National University Ho Chi Minh City (UIT, VNU-HCM) – Maintainer – dungngh@uit.edu.vn
+* **Kiet Van Nguyen** – University of Information Technology, Vietnam National University Ho Chi Minh City (UIT, VNU-HCM) – Maintainer – kietnv@uit.edu.vn
 
 ## 📝 License
 
